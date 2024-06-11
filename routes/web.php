@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ArmadaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,13 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/customers/{id}/edit', [CustomerController::class, 'edit']);
     Route::put('/customers/{id}', [CustomerController::class, 'update']);
     Route::delete('/customers/{id}', [CustomerController::class, 'destroy']);
+
+    Route::get('/armada', [ArmadaController::class, 'index']);
+    Route::post('/armada', [ArmadaController::class, 'store']);
+    Route::get('/armada/create', [ArmadaController::class, 'create']);
+    Route::get('/armada/{id}/edit', [ArmadaController::class, 'edit']);
+    Route::put('/armada/{id}', [ArmadaController::class, 'update']);
+    Route::delete('/armada/{id}', [ArmadaController::class, 'destroy']);
 });
 
 Auth::routes();
